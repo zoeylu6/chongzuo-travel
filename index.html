@@ -297,6 +297,35 @@
         }
 
         /* Hero Navigation */
+        .hero-quick-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: var(--xl);
+            animation: fadeInUp 1s ease-out 0.7s both;
+        }
+
+        .hero-quick-nav a {
+            color: rgba(60, 75, 65, 0.65);
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            padding: 4px 0;
+            border-bottom: 1px solid transparent;
+            transition: all 0.25s ease;
+        }
+
+        .hero-quick-nav a:hover {
+            color: var(--sage-green);
+            border-bottom-color: var(--sage-green);
+        }
+
+        .hero-quick-nav span {
+            color: rgba(60, 75, 65, 0.25);
+            font-size: 0.8rem;
+        }
+
         .hero-nav {
             display: flex;
             flex-direction: row;
@@ -304,7 +333,7 @@
             justify-content: center;
             gap: var(--sm);
             animation: fadeInUp 1s ease-out 0.6s both;
-            margin-top: var(--md);
+            margin-top: var(--lg);
         }
 
         .hero-nav-btn {
@@ -361,6 +390,19 @@
         @media (max-width: 768px) {
             .hero-title {
                 letter-spacing: 0.1em;
+            }
+
+            .hero-quick-nav {
+                gap: 8px;
+                margin-top: var(--lg);
+            }
+
+            .hero-quick-nav a {
+                font-size: 0.8rem;
+            }
+
+            .hero-quick-nav span {
+                font-size: 0.75rem;
             }
 
             .hero-nav {
@@ -1809,6 +1851,14 @@
                     <span class="nav-text">满载而归</span>
                 </a>
             </div>
+
+            <div class="hero-quick-nav">
+                <a href="#overview">概览</a>
+                <span>/</span>
+                <a href="#keytimes">时刻</a>
+                <span>/</span>
+                <a href="#nav-links">导航</a>
+            </div>
         </div>
 
         <div class="scroll-indicator">
@@ -2648,7 +2698,7 @@
             </div>
 
             <!-- 快捷导航 -->
-            <div class="key-card key-card-nav fade-in">
+            <div class="key-card key-card-nav fade-in" id="nav-links">
                 <div class="key-card-header">
                     <div class="key-icon">🧭</div>
                     <h3>快捷导航</h3>
