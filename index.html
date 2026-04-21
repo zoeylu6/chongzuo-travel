@@ -1,0 +1,2535 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>广西崇左五一自驾游 | 山水墨韵之旅</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Ink & Mountains Palette */
+            --ink-deep: #1a1a1a;
+            --ink-medium: #2d2d2d;
+            --ink-light: #4a4a4a;
+            --mist-gray: #8b8b8b;
+            --sage-green: #5a7a6b;
+            --sage-light: #7d9b8a;
+            --sage-pale: #b5c9b8;
+            --cream: #f7f4ef;
+            --cream-warm: #ebe5da;
+            --gold-accent: #c9a962;
+            --gold-bright: #e5c87a;
+            --water-blue: #6b99a8;
+            --water-light: #a8c5cf;
+            --paper: #f9f6f1;
+
+            /* Spacing */
+            --xs: 0.25rem;
+            --sm: 0.5rem;
+            --md: 1rem;
+            --lg: 1.5rem;
+            --xl: 2rem;
+            --xxl: 3rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background: var(--paper);
+            color: var(--ink-deep);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* Paper Texture Overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            z-index: 9999;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(180deg,
+                #d8e5dc 0%,
+                #dce8df 20%,
+                #e0eae0 40%,
+                #ebe5da 60%,
+                #f0e8dc 75%,
+                var(--cream-warm) 100%
+            );
+            padding-top: 15vh;
+        }
+
+        .hero-mountains {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 85%;
+            pointer-events: none;
+        }
+
+        /* 最远层山峰 - 淡墨远景 */
+        .karst-far {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 70%;
+            opacity: 0.25;
+            filter: blur(2px);
+        }
+
+        .karst-far::before,
+        .karst-far::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            border-radius: 50% 50% 2% 2% / 70% 70% 2% 2%;
+        }
+
+        /* 中远景层 - 浅墨 */
+        .karst-mid-far {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 58%;
+            opacity: 0.4;
+        }
+
+        /* 中景层 - 中墨 */
+        .karst-mid {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 45%;
+            opacity: 0.6;
+        }
+
+        /* 近景层 - 浓墨 */
+        .karst-near {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 32%;
+            opacity: 0.8;
+        }
+
+        /* 最近层 - 重墨 */
+        .karst-close {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 20%;
+            opacity: 0.95;
+        }
+
+        /* 水墨晕染层 */
+        .ink-wash {
+            position: absolute;
+            width: 100%;
+            height: 55%;
+            bottom: 18%;
+            background: linear-gradient(180deg,
+                transparent 0%,
+                rgba(255,255,255,0.2) 25%,
+                rgba(240,250,245,0.35) 50%,
+                rgba(255,255,255,0.25) 75%,
+                transparent 100%
+            );
+            pointer-events: none;
+            animation: ink-float 30s ease-in-out infinite;
+        }
+
+        .ink-wash-layer {
+            position: absolute;
+            width: 130%;
+            left: -15%;
+            height: 40%;
+            bottom: 8%;
+            background: linear-gradient(180deg,
+                transparent 0%,
+                rgba(220,235,225,0.25) 35%,
+                rgba(235,245,240,0.4) 55%,
+                rgba(250,252,250,0.3) 75%,
+                transparent 100%
+            );
+            pointer-events: none;
+            animation: ink-float 35s ease-in-out infinite reverse;
+        }
+
+        @keyframes ink-float {
+            0%, 100% {
+                transform: translateX(-8%);
+                opacity: 0.7;
+            }
+            50% {
+                transform: translateX(8%);
+                opacity: 0.9;
+            }
+        }
+
+        /* Hero Content */
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: var(--xl);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--lg);
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--sm);
+            padding: var(--sm) var(--lg);
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: rgba(45, 58, 50, 0.8);
+            letter-spacing: 0.15em;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .hero-badge::before,
+        .hero-badge::after {
+            content: '◆';
+            font-size: 0.5rem;
+            color: rgba(90, 122, 107, 0.5);
+        }
+
+        .hero-title {
+            font-family: 'ZCOOL XiaoWei', serif;
+            font-size: clamp(3.5rem, 12vw, 7rem);
+            font-weight: 400;
+            color: rgba(30, 38, 32, 0.75);
+            line-height: 1;
+            letter-spacing: 0.08em;
+            animation: fadeInUp 1s ease-out 0.2s both;
+            text-shadow:
+                0 2px 20px rgba(255,255,255,0.6),
+                0 1px 1px rgba(0,0,0,0.08);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            color: rgba(45, 58, 50, 0.5);
+            font-weight: 300;
+            letter-spacing: 0.3em;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: var(--xxl);
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--sm);
+            color: var(--sage-green);
+            font-size: 0.85rem;
+            animation: bounce 2s ease-in-out infinite;
+            cursor: pointer;
+        }
+
+        .scroll-indicator svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Hero Navigation */
+        .hero-nav {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--sm);
+            animation: fadeInUp 1s ease-out 0.6s both;
+            margin-top: var(--md);
+        }
+
+        .hero-nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--sm);
+            padding: var(--sm) var(--md);
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 40px;
+            text-decoration: none;
+            color: var(--ink-deep);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+
+        .hero-nav-btn:hover {
+            background: rgba(255, 255, 255, 0.85);
+            border-color: rgba(90, 122, 107, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(90, 122, 107, 0.15);
+        }
+
+        .hero-nav-btn .nav-day {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, rgba(90, 122, 107, 0.7), rgba(125, 155, 138, 0.7));
+            color: white;
+            border-radius: 50%;
+            font-size: 0.75rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .hero-nav-btn:hover .nav-day {
+            background: linear-gradient(135deg, var(--sage-green), var(--sage-light));
+        }
+
+        .hero-nav-btn .nav-text {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: rgba(45, 58, 50, 0.85);
+            white-space: nowrap;
+        }
+
+        .hero-nav-btn:hover .nav-text {
+            color: var(--sage-green);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                letter-spacing: 0.1em;
+            }
+
+            .hero-nav {
+                gap: 6px;
+            }
+
+            .hero-nav-btn {
+                padding: 6px 12px;
+            }
+
+            .hero-nav-btn .nav-day {
+                width: 24px;
+                height: 24px;
+                font-size: 0.7rem;
+            }
+
+            .hero-nav-btn .nav-text {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: var(--md) var(--xl);
+            background: rgba(249, 246, 241, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(90, 122, 107, 0.1);
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .nav.visible {
+            transform: translateY(0);
+        }
+
+        .nav-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-family: 'ZCOOL XiaoWei', serif;
+            font-size: 1.3rem;
+            color: var(--ink-deep);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--lg);
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--ink-medium);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--sage-green);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--sage-green);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Navigation dropdown for days */
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .nav-dropdown-toggle svg {
+            width: 12px;
+            height: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-dropdown:hover .nav-dropdown-toggle svg {
+            transform: rotate(180deg);
+        }
+
+        .nav-dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            min-width: 180px;
+            background: rgba(249, 246, 241, 0.98);
+            backdrop-filter: blur(20px);
+            border-radius: 12px;
+            border: 1px solid rgba(90, 122, 107, 0.15);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+            padding: var(--sm) 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            margin-top: 8px;
+        }
+
+        .nav-dropdown:hover .nav-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .nav-dropdown-menu a {
+            display: block;
+            padding: var(--sm) var(--lg);
+            font-size: 0.85rem;
+            color: var(--ink-medium);
+            white-space: nowrap;
+        }
+
+        .nav-dropdown-menu a:hover {
+            background: rgba(90, 122, 107, 0.1);
+            color: var(--sage-green);
+        }
+
+        .nav-dropdown-menu a::after {
+            display: none;
+        }
+
+        .nav-day-badge {
+            display: inline-block;
+            width: 22px;
+            height: 22px;
+            line-height: 22px;
+            text-align: center;
+            background: var(--sage-green);
+            color: white;
+            border-radius: 50%;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-right: var(--sm);
+        }
+
+        /* Section Styles */
+        section {
+            padding: var(--xxl) var(--xl);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--xxl);
+        }
+
+        .section-label {
+            font-size: 0.8rem;
+            color: var(--sage-green);
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-bottom: var(--sm);
+        }
+
+        .section-title {
+            font-family: 'ZCOOL XiaoWei', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--ink-deep);
+            margin-bottom: var(--md);
+        }
+
+        .section-desc {
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--ink-medium);
+            font-weight: 300;
+        }
+
+        /* Overview Section */
+        .overview {
+            background: linear-gradient(180deg, var(--cream-warm) 0%, var(--paper) 100%);
+            padding-top: var(--xxl);
+        }
+
+        /* Timeline Overview */
+        .timeline-overview {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: var(--lg) 0;
+        }
+
+        .timeline-overview::before {
+            content: '';
+            position: absolute;
+            left: 28px;
+            top: 20px;
+            bottom: 20px;
+            width: 2px;
+            background: linear-gradient(180deg,
+                transparent 0%,
+                var(--sage-pale) 10%,
+                var(--sage-green) 50%,
+                var(--sage-pale) 90%,
+                transparent 100%
+            );
+            border-radius: 1px;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: var(--lg);
+            margin-bottom: var(--md);
+            position: relative;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-marker {
+            flex-shrink: 0;
+            width: 58px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .timeline-dot {
+            width: 14px;
+            height: 14px;
+            background: white;
+            border: 3px solid var(--sage-green);
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px rgba(90, 122, 107, 0.15);
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover .timeline-dot {
+            background: var(--sage-green);
+            box-shadow: 0 0 0 4px rgba(90, 122, 107, 0.2);
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: white;
+            border-radius: 12px;
+            padding: var(--md) var(--lg);
+            box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+            border: 1px solid rgba(90, 122, 107, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            box-shadow: 0 4px 16px rgba(90, 122, 107, 0.1);
+            border-color: rgba(90, 122, 107, 0.15);
+        }
+
+        .timeline-header {
+            display: flex;
+            align-items: baseline;
+            gap: var(--sm);
+            margin-bottom: 6px;
+        }
+
+        .timeline-day {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--sage-green);
+        }
+
+        .timeline-date {
+            font-size: 0.8rem;
+            color: var(--mist-gray);
+        }
+
+        .timeline-title {
+            font-size: 1rem;
+            color: var(--ink-deep);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .timeline-route {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 8px;
+        }
+
+        .timeline-route span {
+            font-size: 0.85rem;
+            color: var(--ink-medium);
+        }
+
+        .timeline-route .arrow {
+            color: var(--sage-pale);
+            font-size: 0.75rem;
+        }
+
+        .timeline-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .timeline-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 2px 10px;
+            background: rgba(90, 122, 107, 0.08);
+            border-radius: 12px;
+            font-size: 0.78rem;
+            color: var(--ink-medium);
+        }
+
+        .timeline-distance {
+            display: inline-flex;
+            align-items: center;
+            padding: 2px 10px;
+            background: rgba(107, 153, 168, 0.1);
+            border-radius: 12px;
+            font-size: 0.78rem;
+            color: var(--water-blue);
+        }
+
+        @media (max-width: 768px) {
+            .timeline-overview::before {
+                left: 18px;
+            }
+
+            .timeline-marker {
+                width: 38px;
+            }
+
+            .timeline-content {
+                padding: var(--sm) var(--md);
+            }
+
+            .timeline-title {
+                font-size: 0.9rem;
+            }
+
+            .timeline-route span {
+                font-size: 0.8rem;
+            }
+
+            .timeline-tags {
+                gap: 4px;
+            }
+
+            .timeline-tag, .timeline-distance {
+                font-size: 0.72rem;
+                padding: 2px 8px;
+            }
+        }
+
+        /* Overview Illustration */
+        .overview-illustration {
+            display: flex;
+            justify-content: center;
+            padding: var(--xxl) 0 var(--xl);
+        }
+
+        .illustration-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            opacity: 0.85;
+        }
+
+        .illustration-container svg {
+            width: 100%;
+            height: auto;
+        }
+
+        .overview-card {
+            background: white;
+            border-radius: 16px;
+            padding: var(--xl);
+            text-align: center;
+            border: 1px solid rgba(90, 122, 107, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .overview-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--sage-green), var(--gold-accent));
+        }
+
+        .overview-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(90, 122, 107, 0.15);
+        }
+
+        .overview-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto var(--md);
+            background: linear-gradient(135deg, var(--sage-pale), var(--cream));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .overview-card h3 {
+            font-size: 1.2rem;
+            color: var(--ink-deep);
+            margin-bottom: var(--sm);
+        }
+
+        .overview-card p {
+            color: var(--ink-medium);
+            font-size: 0.9rem;
+        }
+
+        /* Timeline Section */
+        .timeline {
+            position: relative;
+            padding-left: 0;
+        }
+
+        .day-card {
+            position: relative;
+            margin-bottom: var(--xxl);
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: all 0.4s ease;
+        }
+
+        .day-card:hover {
+            box-shadow: 0 8px 40px rgba(90, 122, 107, 0.15);
+        }
+
+        .day-header {
+            background: linear-gradient(135deg, #5a6b5e 0%, #4a5a4e 50%, #5c6354 100%);
+            padding: var(--xl) var(--xl) var(--xl) calc(var(--xl) + 8px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .day-header::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--gold-bright), var(--gold-accent), #b8985a);
+        }
+
+        .day-header::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 40%;
+            background: linear-gradient(90deg, transparent, rgba(201, 169, 98, 0.08));
+            pointer-events: none;
+        }
+
+        .day-badge-row {
+            display: flex;
+            align-items: center;
+            gap: var(--md);
+            margin-bottom: var(--sm);
+        }
+
+        .day-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--gold-accent), var(--gold-bright));
+            border-radius: 12px;
+            color: #2d4532;
+            font-weight: 700;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 12px rgba(201, 169, 98, 0.4);
+            flex-shrink: 0;
+        }
+
+        .day-date {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 0.08em;
+        }
+
+        .day-date .weekday {
+            display: inline-block;
+            padding: 2px 10px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            margin-left: var(--sm);
+            font-size: 0.8rem;
+        }
+
+        .day-title {
+            font-family: 'ZCOOL XiaoWei', serif;
+            font-size: 1.6rem;
+            color: white;
+            margin-bottom: var(--sm);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .day-route {
+            display: flex;
+            align-items: center;
+            gap: var(--sm);
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .route-arrow {
+            color: var(--gold-bright);
+            font-weight: 600;
+        }
+
+        .route-arrow {
+            color: var(--sage-green);
+            font-weight: 600;
+        }
+
+        .day-content {
+            padding: var(--xl);
+        }
+
+        /* Time Slot */
+        .time-slot {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: var(--lg);
+            margin-bottom: var(--xl);
+            padding-bottom: var(--lg);
+            border-bottom: 1px dashed rgba(90, 122, 107, 0.15);
+        }
+
+        .time-slot:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .time-label {
+            font-size: 0.85rem;
+            color: var(--sage-green);
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            padding-top: 4px;
+        }
+
+        .slot-content h4 {
+            font-size: 1.15rem;
+            color: var(--ink-deep);
+            margin-bottom: var(--sm);
+            display: flex;
+            align-items: center;
+            gap: var(--sm);
+        }
+
+        .slot-tag {
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            background: rgba(201, 169, 98, 0.15);
+            color: var(--gold-accent);
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .slot-content p {
+            color: var(--ink-medium);
+            font-size: 0.95rem;
+            margin-bottom: var(--md);
+        }
+
+        /* Feature List */
+        .feature-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--sm);
+            margin-top: var(--md);
+        }
+
+        .feature-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--xs);
+            padding: var(--xs) var(--md);
+            background: rgba(90, 122, 107, 0.08);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--ink-medium);
+        }
+
+        .feature-tag svg {
+            width: 14px;
+            height: 14px;
+            color: var(--sage-green);
+        }
+
+        /* Distance Badge */
+        .distance-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--sm);
+            padding: var(--sm) var(--md);
+            background: linear-gradient(135deg, var(--water-light), white);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: var(--water-blue);
+            margin-top: var(--md);
+        }
+
+        /* Tips Box */
+        .tips-box {
+            background: rgba(90, 122, 107, 0.04);
+            border-radius: 8px;
+            padding: var(--md);
+            margin-top: var(--lg);
+            border-left: 2px solid var(--sage-green);
+        }
+
+        .tips-box h5 {
+            font-size: 0.85rem;
+            color: var(--sage-green);
+            margin-bottom: var(--sm);
+            display: flex;
+            align-items: center;
+            gap: var(--sm);
+        }
+
+        .tips-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .tips-box li {
+            padding: 4px 0;
+            color: var(--ink-light);
+            font-size: 0.82rem;
+            line-height: 1.6;
+            padding-left: var(--md);
+            position: relative;
+        }
+
+        .tips-box li::before {
+            content: '·';
+            position: absolute;
+            left: 0;
+            color: var(--sage-green);
+            font-weight: bold;
+        }
+
+        /* Rainy Day Alternative */
+        .rainy-box {
+            background: rgba(107, 153, 168, 0.06);
+            border-radius: 8px;
+            padding: var(--md);
+            margin-top: var(--sm);
+            border-left: 2px solid var(--water-blue);
+        }
+
+        .rainy-box h5 {
+            font-size: 0.85rem;
+            color: var(--water-blue);
+            margin-bottom: var(--sm);
+            display: flex;
+            align-items: center;
+            gap: var(--sm);
+        }
+
+        .rainy-box p {
+            color: var(--ink-light);
+            font-size: 0.82rem;
+            margin-bottom: var(--sm);
+            line-height: 1.6;
+        }
+
+        .rainy-box .rainy-route {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-top: var(--xs);
+            padding: var(--xs) var(--sm);
+            background: rgba(255,255,255,0.3);
+            border-radius: 6px;
+        }
+
+        .rainy-box .rainy-route span {
+            font-size: 0.8rem;
+            color: var(--water-blue);
+        }
+
+        .rainy-box p[style*="font-size"] {
+            font-size: 0.78rem !important;
+        }
+
+        /* Food Section */
+        .food-section {
+            background: linear-gradient(135deg, var(--cream) 0%, var(--cream-warm) 100%);
+            border-radius: 16px;
+            padding: var(--lg);
+            margin-top: var(--lg);
+        }
+
+        .food-title {
+            font-size: 0.95rem;
+            color: var(--sage-green);
+            margin-bottom: var(--md);
+            display: flex;
+            align-items: center;
+            gap: var(--sm);
+        }
+
+        .food-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--sm);
+        }
+
+        .food-item {
+            display: flex;
+            align-items: center;
+            gap: var(--xs);
+            padding: var(--sm) var(--md);
+            background: white;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--ink-deep);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        /* Info Cards Section - 山水墨韵风格 */
+        .info-section {
+            position: relative;
+            background: linear-gradient(135deg,
+                #2d3a32 0%,
+                #1a2420 50%,
+                #2a3630 100%
+            );
+            color: var(--cream);
+            padding: var(--xxl) var(--xl);
+            margin: 0;
+            max-width: none;
+            overflow: hidden;
+        }
+
+        /* 水墨纹理背景 */
+        .info-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(ellipse at 10% 20%, rgba(90, 122, 107, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 90% 80%, rgba(201, 169, 98, 0.1) 0%, transparent 40%),
+                radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        /* 山水装饰 */
+        .info-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(180deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0.02) 50%,
+                rgba(255, 255, 255, 0.05) 100%
+            );
+            pointer-events: none;
+            clip-path: polygon(
+                0% 100%,
+                0% 70%, 5% 65%, 10% 72%, 15% 58%, 20% 68%,
+                25% 52%, 30% 62%, 35% 48%, 40% 58%, 45% 52%,
+                50% 60%, 55% 45%, 60% 55%, 65% 42%, 70% 52%,
+                75% 48%, 80% 58%, 85% 45%, 90% 55%, 95% 50%,
+                100% 60%, 100% 100%
+            );
+        }
+
+        .info-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .info-section .section-title {
+            color: var(--cream);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .info-section .section-label {
+            color: var(--gold-accent);
+        }
+
+        .info-section .section-desc {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: var(--lg);
+        }
+
+        .info-card {
+            background: rgba(255,255,255,0.03);
+            border-radius: 20px;
+            padding: var(--xl);
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg,
+                transparent,
+                var(--gold-accent),
+                var(--sage-pale),
+                transparent
+            );
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .info-card:hover {
+            background: rgba(255,255,255,0.06);
+            border-color: rgba(201, 169, 98, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+        }
+
+        .info-card:hover::before {
+            opacity: 1;
+        }
+
+        .info-card-header {
+            display: flex;
+            align-items: center;
+            gap: var(--md);
+            margin-bottom: var(--lg);
+            padding-bottom: var(--md);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .info-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, rgba(90, 122, 107, 0.3), rgba(181, 201, 184, 0.2));
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+        }
+
+        .info-card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--cream);
+            letter-spacing: 0.05em;
+        }
+
+        .info-card ul {
+            list-style: none;
+        }
+
+        .info-card li {
+            padding: var(--sm) 0;
+            padding-left: var(--lg);
+            position: relative;
+            color: rgba(255,255,255,0.75);
+            font-size: 0.92rem;
+            line-height: 1.7;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+        }
+
+        .info-card li:last-child {
+            border-bottom: none;
+        }
+
+        .info-card li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 14px;
+            width: 5px;
+            height: 5px;
+            background: var(--gold-accent);
+            border-radius: 50%;
+            box-shadow: 0 0 6px rgba(201, 169, 98, 0.5);
+        }
+
+        .highlight {
+            color: var(--gold-bright);
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .info-card {
+                padding: var(--lg);
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: var(--ink-medium);
+            color: var(--cream);
+            text-align: center;
+            padding: var(--xxl) var(--xl);
+        }
+
+        .footer-quote {
+            font-family: 'ZCOOL XiaoWei', serif;
+            font-size: 1.5rem;
+            margin-bottom: var(--lg);
+            opacity: 0.9;
+        }
+
+        .footer-note {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .timeline {
+                padding-left: var(--md);
+                padding-right: var(--md);
+            }
+
+            .day-header {
+                padding: var(--lg);
+            }
+
+            .day-number {
+                width: 42px;
+                height: 42px;
+                font-size: 1rem;
+            }
+
+            .day-title {
+                font-size: 1.3rem;
+            }
+
+            .day-route {
+                font-size: 0.85rem;
+            }
+
+            .day-content {
+                padding: var(--lg);
+            }
+
+            .time-slot {
+                grid-template-columns: 1fr;
+                gap: var(--sm);
+            }
+
+            .nav-links {
+                display: none;
+            }
+                flex-direction: column;
+                gap: var(--md);
+            }
+
+            section {
+                padding: var(--xl) var(--md);
+            }
+
+            .overview-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Decorative Elements */
+        .decoration-circle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.1;
+        }
+
+        .circle-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--sage-green);
+            top: 10%;
+            right: -150px;
+        }
+
+        .circle-2 {
+            width: 200px;
+            height: 200px;
+            background: var(--gold-accent);
+            bottom: 20%;
+            left: -100px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <div class="nav-brand">山水墨韵</div>
+            <ul class="nav-links">
+                <li><a href="#overview">行程概览</a></li>
+                <li class="nav-dropdown">
+                    <a href="#itinerary" class="nav-dropdown-toggle">
+                        详细行程
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </a>
+                    <div class="nav-dropdown-menu">
+                        <a href="#day1"><span class="nav-day-badge">D1</span>4月30日 · 通灵大峡谷</a>
+                        <a href="#day2"><span class="nav-day-badge">D2</span>5月1日 · 德天瀑布</a>
+                        <a href="#day3"><span class="nav-day-badge">D3</span>5月2日 · 伏那秘境</a>
+                        <a href="#day4"><span class="nav-day-badge">D4</span>5月3日 · 南宁漫游</a>
+                        <a href="#day5"><span class="nav-day-badge">D5</span>5月4日 · 返程</a>
+                    </div>
+                </li>
+                <li><a href="#info">实用贴士</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-mountains">
+            <!-- 最远层山峰 -->
+            <svg class="karst-far" viewBox="0 0 1440 500" preserveAspectRatio="xMidYMax slice">
+                <defs>
+                    <linearGradient id="farGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="transparent"/>
+                        <stop offset="30%" stop-color="#c8d8cc"/>
+                        <stop offset="100%" stop-color="#a8c0ae"/>
+                    </linearGradient>
+                </defs>
+                <ellipse cx="50" cy="500" rx="55" ry="280" fill="url(#farGrad)"/>
+                <ellipse cx="140" cy="500" rx="42" ry="220" fill="url(#farGrad)"/>
+                <ellipse cx="220" cy="500" rx="65" ry="310" fill="url(#farGrad)"/>
+                <ellipse cx="320" cy="500" rx="48" ry="250" fill="url(#farGrad)"/>
+                <ellipse cx="400" cy="500" rx="70" ry="340" fill="url(#farGrad)"/>
+                <ellipse cx="500" cy="500" rx="45" ry="230" fill="url(#farGrad)"/>
+                <ellipse cx="580" cy="500" rx="60" ry="290" fill="url(#farGrad)"/>
+                <ellipse cx="680" cy="500" rx="52" ry="260" fill="url(#farGrad)"/>
+                <ellipse cx="780" cy="500" rx="68" ry="320" fill="url(#farGrad)"/>
+                <ellipse cx="880" cy="500" rx="50" ry="240" fill="url(#farGrad)"/>
+                <ellipse cx="960" cy="500" rx="72" ry="350" fill="url(#farGrad)"/>
+                <ellipse cx="1060" cy="500" rx="48" ry="255" fill="url(#farGrad)"/>
+                <ellipse cx="1140" cy="500" rx="62" ry="295" fill="url(#farGrad)"/>
+                <ellipse cx="1240" cy="500" rx="55" ry="275" fill="url(#farGrad)"/>
+                <ellipse cx="1340" cy="500" rx="65" ry="305" fill="url(#farGrad)"/>
+                <ellipse cx="1420" cy="500" rx="48" ry="235" fill="url(#farGrad)"/>
+            </svg>
+
+            <!-- 中远景层 -->
+            <svg class="karst-mid-far" viewBox="0 0 1440 450" preserveAspectRatio="xMidYMax slice">
+                <defs>
+                    <linearGradient id="midFarGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="transparent"/>
+                        <stop offset="25%" stop-color="#a8bcad"/>
+                        <stop offset="100%" stop-color="#7a9a82"/>
+                    </linearGradient>
+                </defs>
+                <ellipse cx="80" cy="450" rx="65" ry="260" fill="url(#midFarGrad)"/>
+                <ellipse cx="180" cy="450" rx="50" ry="200" fill="url(#midFarGrad)"/>
+                <ellipse cx="280" cy="450" rx="75" ry="300" fill="url(#midFarGrad)"/>
+                <ellipse cx="400" cy="450" rx="58" ry="230" fill="url(#midFarGrad)"/>
+                <ellipse cx="520" cy="450" rx="80" ry="320" fill="url(#midFarGrad)"/>
+                <ellipse cx="640" cy="450" rx="55" ry="220" fill="url(#midFarGrad)"/>
+                <ellipse cx="760" cy="450" rx="70" ry="280" fill="url(#midFarGrad)"/>
+                <ellipse cx="880" cy="450" rx="60" ry="240" fill="url(#midFarGrad)"/>
+                <ellipse cx="1000" cy="450" rx="78" ry="310" fill="url(#midFarGrad)"/>
+                <ellipse cx="1120" cy="450" rx="52" ry="210" fill="url(#midFarGrad)"/>
+                <ellipse cx="1220" cy="450" rx="68" ry="270" fill="url(#midFarGrad)"/>
+                <ellipse cx="1340" cy="450" rx="58" ry="235" fill="url(#midFarGrad)"/>
+            </svg>
+
+            <!-- 中景层 -->
+            <svg class="karst-mid" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMax slice">
+                <defs>
+                    <linearGradient id="midGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="transparent"/>
+                        <stop offset="20%" stop-color="#6a8870"/>
+                        <stop offset="100%" stop-color="#4a6850"/>
+                    </linearGradient>
+                </defs>
+                <ellipse cx="100" cy="400" rx="70" ry="240" fill="url(#midGrad)"/>
+                <ellipse cx="220" cy="400" rx="55" ry="190" fill="url(#midGrad)"/>
+                <ellipse cx="340" cy="400" rx="82" ry="280" fill="url(#midGrad)"/>
+                <ellipse cx="480" cy="400" rx="60" ry="210" fill="url(#midGrad)"/>
+                <ellipse cx="600" cy="400" rx="85" ry="290" fill="url(#midGrad)"/>
+                <ellipse cx="740" cy="400" rx="65" ry="225" fill="url(#midGrad)"/>
+                <ellipse cx="860" cy="400" rx="78" ry="265" fill="url(#midGrad)"/>
+                <ellipse cx="1000" cy="400" rx="55" ry="185" fill="url(#midGrad)"/>
+                <ellipse cx="1120" cy="400" rx="75" ry="255" fill="url(#midGrad)"/>
+                <ellipse cx="1260" cy="400" rx="62" ry="215" fill="url(#midGrad)"/>
+                <ellipse cx="1380" cy="400" rx="72" ry="245" fill="url(#midGrad)"/>
+            </svg>
+
+            <!-- 近景层 -->
+            <svg class="karst-near" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice">
+                <defs>
+                    <linearGradient id="nearGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="transparent"/>
+                        <stop offset="15%" stop-color="#3d5a42"/>
+                        <stop offset="100%" stop-color="#2a4030"/>
+                    </linearGradient>
+                </defs>
+                <ellipse cx="80" cy="300" rx="75" ry="210" fill="url(#nearGrad)"/>
+                <ellipse cx="200" cy="300" rx="60" ry="170" fill="url(#nearGrad)"/>
+                <ellipse cx="320" cy="300" rx="88" ry="250" fill="url(#nearGrad)"/>
+                <ellipse cx="460" cy="300" rx="65" ry="185" fill="url(#nearGrad)"/>
+                <ellipse cx="600" cy="300" rx="92" ry="260" fill="url(#nearGrad)"/>
+                <ellipse cx="750" cy="300" rx="68" ry="195" fill="url(#nearGrad)"/>
+                <ellipse cx="880" cy="300" rx="82" ry="235" fill="url(#nearGrad)"/>
+                <ellipse cx="1020" cy="300" rx="58" ry="165" fill="url(#nearGrad)"/>
+                <ellipse cx="1150" cy="300" rx="80" ry="230" fill="url(#nearGrad)"/>
+                <ellipse cx="1300" cy="300" rx="70" ry="200" fill="url(#nearGrad)"/>
+                <ellipse cx="1400" cy="300" rx="55" ry="160" fill="url(#nearGrad)"/>
+            </svg>
+
+            <!-- 最近层 -->
+            <svg class="karst-close" viewBox="0 0 1440 200" preserveAspectRatio="xMidYMax slice">
+                <defs>
+                    <linearGradient id="closeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="transparent"/>
+                        <stop offset="10%" stop-color="#1f3525"/>
+                        <stop offset="100%" stop-color="#152018"/>
+                    </linearGradient>
+                </defs>
+                <ellipse cx="120" cy="200" rx="80" ry="150" fill="url(#closeGrad)"/>
+                <ellipse cx="280" cy="200" rx="65" ry="125" fill="url(#closeGrad)"/>
+                <ellipse cx="420" cy="200" rx="90" ry="165" fill="url(#closeGrad)"/>
+                <ellipse cx="580" cy="200" rx="70" ry="135" fill="url(#closeGrad)"/>
+                <ellipse cx="720" cy="200" rx="95" ry="175" fill="url(#closeGrad)"/>
+                <ellipse cx="880" cy="200" rx="62" ry="120" fill="url(#closeGrad)"/>
+                <ellipse cx="1020" cy="200" rx="88" ry="160" fill="url(#closeGrad)"/>
+                <ellipse cx="1180" cy="200" rx="75" ry="145" fill="url(#closeGrad)"/>
+                <ellipse cx="1320" cy="200" rx="68" ry="130" fill="url(#closeGrad)"/>
+            </svg>
+
+            <!-- 水墨晕染 -->
+            <div class="ink-wash-layer"></div>
+            <div class="ink-wash"></div>
+        </div>
+
+        <div class="hero-content">
+            <span class="hero-badge">广西 · 崇左</span>
+            <h1 class="hero-title">山水墨韵</h1>
+            <p class="hero-subtitle">喀斯特地形的诗意漫游</p>
+
+            <div class="hero-nav">
+                <a href="#day1" class="hero-nav-btn">
+                    <span class="nav-day">D1</span>
+                    <span class="nav-text">通灵峡谷</span>
+                </a>
+                <a href="#day2" class="hero-nav-btn">
+                    <span class="nav-day">D2</span>
+                    <span class="nav-text">德天瀑布</span>
+                </a>
+                <a href="#day3" class="hero-nav-btn">
+                    <span class="nav-day">D3</span>
+                    <span class="nav-text">秘境探幽</span>
+                </a>
+                <a href="#day4" class="hero-nav-btn">
+                    <span class="nav-day">D4</span>
+                    <span class="nav-text">南宁漫游</span>
+                </a>
+                <a href="#day5" class="hero-nav-btn">
+                    <span class="nav-day">D5</span>
+                    <span class="nav-text">满载而归</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <span>向下探索</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M5 12l7 7 7-7"/>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Overview Section -->
+    <section class="overview" id="overview">
+        <div class="section-header">
+            <div class="section-label">Trip Overview</div>
+            <h2 class="section-title">行程概览</h2>
+            <p class="section-desc">穿越广西边陲秘境，探寻喀斯特山水画卷</p>
+        </div>
+
+        <div class="timeline-overview">
+            <!-- D1 -->
+            <div class="timeline-item fade-in">
+                <div class="timeline-marker">
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <span class="timeline-day">第一天</span>
+                        <span class="timeline-date">4月30日</span>
+                    </div>
+                    <div class="timeline-title">峡谷探幽 · 明仕日落</div>
+                    <div class="timeline-route">
+                        <span>崇左南站</span>
+                        <span class="arrow">→</span>
+                        <span>通灵大峡谷</span>
+                        <span class="arrow">→</span>
+                        <span>明仕田园</span>
+                    </div>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag">🌿 通灵大峡谷</span>
+                        <span class="timeline-tag">🛶 竹筏漂流</span>
+                        <span class="timeline-distance">185km</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- D2 -->
+            <div class="timeline-item fade-in">
+                <div class="timeline-marker">
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <span class="timeline-day">第二天</span>
+                        <span class="timeline-date">5月1日 · 劳动节</span>
+                    </div>
+                    <div class="timeline-title">跨国瀑布 · 溶洞咖啡</div>
+                    <div class="timeline-route">
+                        <span>明仕田园</span>
+                        <span class="arrow">→</span>
+                        <span>德天瀑布</span>
+                        <span class="arrow">→</span>
+                        <span>蓝洞咖啡</span>
+                        <span class="arrow">→</span>
+                        <span>大新县城</span>
+                    </div>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag">🌊 德天瀑布</span>
+                        <span class="timeline-tag">☕ 溶洞咖啡</span>
+                        <span class="timeline-distance">50km</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- D3 -->
+            <div class="timeline-item fade-in">
+                <div class="timeline-marker">
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <span class="timeline-day">第三天</span>
+                        <span class="timeline-date">5月2日</span>
+                    </div>
+                    <div class="timeline-title">秘境探幽 · 转赴南宁</div>
+                    <div class="timeline-route">
+                        <span>大新县城</span>
+                        <span class="arrow">→</span>
+                        <span>伏那秘境</span>
+                        <span class="arrow">→</span>
+                        <span>峒那屿湾</span>
+                        <span class="arrow">→</span>
+                        <span>南宁</span>
+                    </div>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag">🌲 原始森林</span>
+                        <span class="timeline-tag">🚤 水上桂林</span>
+                        <span class="timeline-distance">110km + 高铁</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- D4 -->
+            <div class="timeline-item fade-in">
+                <div class="timeline-marker">
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <span class="timeline-day">第四天</span>
+                        <span class="timeline-date">5月3日</span>
+                    </div>
+                    <div class="timeline-title">南宁城市漫游</div>
+                    <div class="timeline-route">
+                        <span>青秀山公园</span>
+                        <span class="arrow">→</span>
+                        <span>民族博物馆</span>
+                        <span class="arrow">→</span>
+                        <span>南宁夜市</span>
+                    </div>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag">🗼 龙象塔</span>
+                        <span class="timeline-tag">🏛️ 壮族文化</span>
+                        <span class="timeline-distance">🚇 地铁出行</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- D5 -->
+            <div class="timeline-item fade-in">
+                <div class="timeline-marker">
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <span class="timeline-day">第五天</span>
+                        <span class="timeline-date">5月4日 · 青年节</span>
+                    </div>
+                    <div class="timeline-title">南宁休闲 · 满载而归</div>
+                    <div class="timeline-route">
+                        <span>睡到自然醒</span>
+                        <span class="arrow">→</span>
+                        <span>三街两巷</span>
+                        <span class="arrow">→</span>
+                        <span>南宁机场</span>
+                    </div>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag">🏛️ 老街风情</span>
+                        <span class="timeline-tag">🛍️ 伴手礼</span>
+                        <span class="timeline-distance">✈️ 返程</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 桂林山水插图 -->
+        <div class="overview-illustration fade-in">
+            <div class="illustration-container">
+                <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+                    <!-- 天空渐变 -->
+                    <defs>
+                        <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#e8f0e6;stop-opacity:1" />
+                            <stop offset="50%" style="stop-color:#f0ebe0;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#f7f4ef;stop-opacity:1" />
+                        </linearGradient>
+                        <linearGradient id="mistGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.8" />
+                            <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0" />
+                        </linearGradient>
+                    </defs>
+
+                    <!-- 背景 -->
+                    <rect x="0" y="0" width="800" height="300" fill="url(#skyGrad)"/>
+
+                    <!-- 远山 - 淡墨 -->
+                    <g opacity="0.3">
+                        <ellipse cx="80" cy="280" rx="35" ry="120" fill="#b8c8bc"/>
+                        <ellipse cx="140" cy="285" rx="25" ry="90" fill="#c0d0c4"/>
+                        <ellipse cx="200" cy="278" rx="40" ry="130" fill="#b5c5b9"/>
+                        <ellipse cx="280" cy="282" rx="30" ry="100" fill="#bccccc"/>
+                        <ellipse cx="350" cy="275" rx="45" ry="140" fill="#b0c0b4"/>
+                        <ellipse cx="430" cy="280" rx="28" ry="95" fill="#c5d5c9"/>
+                        <ellipse cx="500" cy="278" rx="38" ry="125" fill="#b8c8bc"/>
+                        <ellipse cx="580" cy="285" rx="32" ry="105" fill="#c0d0c4"/>
+                        <ellipse cx="650" cy="275" rx="42" ry="135" fill="#b5c5b9"/>
+                        <ellipse cx="720" cy="282" rx="35" ry="110" fill="#bccccc"/>
+                    </g>
+
+                    <!-- 中山 - 浅墨 -->
+                    <g opacity="0.5">
+                        <ellipse cx="60" cy="290" rx="30" ry="100" fill="#8aa08e"/>
+                        <ellipse cx="120" cy="295" rx="22" ry="75" fill="#95aa99"/>
+                        <ellipse cx="180" cy="288" rx="35" ry="115" fill="#7d9381"/>
+                        <ellipse cx="260" cy="292" rx="25" ry="85" fill="#90a594"/>
+                        <ellipse cx="330" cy="285" rx="38" ry="125" fill="#7a907e"/>
+                        <ellipse cx="410" cy="290" rx="24" ry="80" fill="#8ca08e"/>
+                        <ellipse cx="480" cy="288" rx="32" ry="108" fill="#859b89"/>
+                        <ellipse cx="560" cy="295" rx="28" ry="92" fill="#92a796"/>
+                        <ellipse cx="640" cy="285" rx="36" ry="118" fill="#788e7c"/>
+                        <ellipse cx="720" cy="292" rx="30" ry="98" fill="#8a9f8e"/>
+                    </g>
+
+                    <!-- 近山 - 浓墨 -->
+                    <g opacity="0.75">
+                        <ellipse cx="50" cy="300" rx="28" ry="95" fill="#5a705e"/>
+                        <ellipse cx="110" cy="305" rx="20" ry="70" fill="#6a806e"/>
+                        <ellipse cx="170" cy="298" rx="32" ry="108" fill="#4d6351"/>
+                        <ellipse cx="250" cy="302" rx="22" ry="78" fill="#657b69"/>
+                        <ellipse cx="320" cy="295" rx="36" ry="118" fill="#455b49"/>
+                        <ellipse cx="400" cy="300" rx="20" ry="72" fill="#5f7563"/>
+                        <ellipse cx="470" cy="298" rx="30" ry="102" fill="#526852"/>
+                        <ellipse cx="550" cy="305" rx="26" ry="88" fill="#6b816f"/>
+                        <ellipse cx="630" cy="295" rx="34" ry="112" fill="#4a604e"/>
+                        <ellipse cx="710" cy="302" rx="28" ry="95" fill="#5c7260"/>
+                        <ellipse cx="780" cy="298" rx="25" ry="85" fill="#607664"/>
+                    </g>
+
+                    <!-- 雾气层 -->
+                    <rect x="0" y="150" width="800" height="150" fill="url(#mistGrad)" opacity="0.4"/>
+
+                    <!-- 装饰性文字 -->
+                    <text x="400" y="80" text-anchor="middle" font-family="ZCOOL XiaoWei, serif" font-size="28" fill="#5a7a6b" opacity="0.7">山水墨韵 · 崇左自驾</text>
+                    <text x="400" y="110" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="14" fill="#7d9b8a" opacity="0.6">五天四晚 · 喀斯特秘境之旅</text>
+
+                    <!-- 装饰线条 -->
+                    <line x1="300" y1="130" x2="500" y2="130" stroke="#a8c5b8" stroke-width="1" opacity="0.4"/>
+                    <circle cx="400" cy="130" r="3" fill="#7d9b8a" opacity="0.5"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Itinerary -->
+    <section id="itinerary">
+        <div class="section-header">
+            <div class="section-label">Daily Itinerary</div>
+            <h2 class="section-title">详细行程</h2>
+            <p class="section-desc">每一天都是一幅流动的山水画卷</p>
+        </div>
+
+        <div class="timeline">
+            <!-- Day 1 -->
+            <article class="day-card fade-in" id="day1">
+                <div class="day-header">
+                    <div class="day-badge-row">
+                        <div class="day-number">D1</div>
+                        <div class="day-date">4月30日 <span class="weekday">周三</span></div>
+                    </div>
+                    <h3 class="day-title">崇左南站出发 · 初见山水</h3>
+                    <div class="day-route">
+                        <span>崇左南站</span>
+                        <span class="route-arrow">→</span>
+                        <span>通灵大峡谷</span>
+                        <span class="route-arrow">→</span>
+                        <span>明仕田园</span>
+                    </div>
+                </div>
+                <div class="day-content">
+                    <div class="time-slot">
+                        <div class="time-label">上午</div>
+                        <div class="slot-content">
+                            <h4>最美高速启程 <span class="slot-tag">推荐早发</span></h4>
+                            <p>崇左南站取车出发，沿 S60 合那高速一路向西。这条被誉为"最美高速"的公路，穿行于喀斯特峰丛之间，云雾缭绕，如入画境。</p>
+                            <div class="feature-list">
+                                <span class="feature-tag">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                                    建议出发 7:30 前
+                                </span>
+                                <span class="feature-tag">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                                    车程约 2-2.5 小时
+                                </span>
+                                <span class="feature-tag">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.5 19H9a7 7 0 110-14h8.5a4.5 4.5 0 010 9H12"/></svg>
+                                    服务区较少，提前加油
+                                </span>
+                            </div>
+                            <div class="distance-badge">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                约 150km · 高速为主
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="time-slot">
+                        <div class="time-label">上午</div>
+                        <div class="slot-content">
+                            <h4>通灵大峡谷 <span class="slot-tag">震撼景观</span></h4>
+                            <p>亚洲第一大峡谷，全长 3.8 公里。峡谷深处，一道落差 188.6 米的瀑布从天而降。穿行原始森林，探秘溶洞奇观，感受大自然的鬼斧神工。</p>
+                            <div class="feature-list">
+                                <span class="feature-tag">🌿 原始森林步道</span>
+                                <span class="feature-tag">💦 亚洲单级最高瀑布</span>
+                                <span class="feature-tag">🕳️ 溶洞奇观</span>
+                                <span class="feature-tag">📸 最佳拍照点：瀑布正面观景台</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="time-slot">
+                        <div class="time-label">下午</div>
+                        <div class="slot-content">
+                            <h4>明仕田园 <span class="slot-tag">精华必游</span></h4>
+                            <p>誉为"隐者之居"，这里有江南水乡的温婉，又有边关山寨的恬静。乘竹筏漂流，看青山倒影碧波中；骑行田园小径，感受炊烟袅袅的田园诗意。</p>
+                            <div class="feature-list">
+                                <span class="feature-tag">🛶 竹筏漂流 30 分钟</span>
+                                <span class="feature-tag">🚴 田园骑行</span>
+                                <span class="feature-tag">🌅 日落绝佳观赏地</span>
+                                <span class="feature-tag">🏠 壮族民居体验</span>
+                            </div>
+                            <div class="distance-badge">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                通灵→明仕 约 35km · 40分钟
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="time-slot">
+                        <div class="time-label">晚上</div>
+                        <div class="slot-content">
+                            <h4>明仕田园住宿 · 品尝农家菜</h4>
+                            <p>入住田园民宿，推窗即是山水画卷。晚餐品尝当地特色农家菜，竹筒饭的清香、酸嘢的爽脆，舌尖上的广西味道。</p>
+                            <div class="food-section">
+                                <h5 class="food-title">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                                    今日美食推荐
+                                </h5>
+                                <div class="food-grid">
+                                    <span class="food-item">🍚 竹筒饭</span>
+                                    <span class="food-item">🥗 明仕农家菜</span>
+                                    <span class="food-item">🍋 酸嘢</span>
+                                    <span class="food-item">🐟 清蒸河鱼</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tips-box">
+                        <h5>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                            今日贴士
+                        </h5>
+                        <ul>
+                            <li>通灵大峡谷需步行约 2-3 小时，穿舒适防滑鞋</li>
+                            <li>峡谷内潮湿阴冷，带件薄外套</li>
+                            <li>明仕田园民宿需提前预订，五一假期房源紧张</li>
+                            <li>竹筏漂流建议下午 4 点后，避开烈日且可赏日落</li>
+                        </ul>
+                    </div>
+                    <div class="rainy-box">
+                        <h5>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 17.58A5 5 0 0018 8h-1.26A8 8 0 104 16.25"/><line x1="8" y1="16" x2="8.01" y2="16"/><line x1="8" y1="20" x2="8.01" y2="20"/><line x1="12" y1="18" x2="12.01" y2="18"/><line x1="12" y1="22" x2="12.01" y2="22"/><line x1="16" y1="16" x2="16.01" y2="16"/><line x1="16" y1="20" x2="16.01" y2="20"/></svg>
+                            雨天备选行程
+                        </h5>
+                        <p>雨天峡谷道路湿滑，可选择室内或轻松游览方案：</p>
+                        <div class="rainy-route">
+                            <span>上午：崇左市博物馆</span>
+                            <span>→</span>
+                            <span>下午：大新县城酒店休整</span>
+                            <span>→</span>
+                            <span>傍晚：明仕田园室内观景咖啡厅</span>
+                        </div>
+                        <p style="margin-top: var(--sm); font-size: 0.85rem; color: var(--ink-light);">💡 提示：雨天瀑布水量更大，如雨势较小可正常游览通灵大峡谷，雨后云雾缭绕更添意境</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Day 2 -->
+            <article class="day-card fade-in" id="day2">
+                <div class="day-header">
+                    <div class="day-badge-row">
+                        <div class="day-number">D2</div>
+                        <div class="day-date">5月1日 <span class="weekday">劳动节</span></div>
+                    </div>
+                    <h3 class="day-title">跨国瀑布 · 溶洞咖啡</h3>
+                    <div class="day-route">
+                        <span>明仕田园</span>
+                        <span class="route-arrow">→</span>
+                        <span>德天瀑布</span>
+                        <span class="route-arrow">→</span>
+                        <span>蓝洞咖啡</span>
+                        <span class="route-arrow">→</span>
+                        <span>大新县城</span>
+                    </div>
+                </div>
+                <div class="day-content">
+                    <div class="time-slot">
+                        <div class="time-label">上午</div>
+                        <div class="slot-content">
+                            <h4>德天跨国瀑布 <span class="slot-tag">核心景点</span></h4>
+                            <p>亚洲第一、世界第四大跨国瀑布。瀑布宽 100 多米，落差 70 多米，分三层跌宕而下，气势磅礴。一边是中国德天，一边是越南板约，跨国风情尽收眼底。</p>
+                            <div class="feature-list">
+                                <span class="feature-tag">🌊 三级跌落瀑布群</span>
+                                <span class="feature-tag">🇻🇳 中越边境风光</span>
+                                <span class="feature-tag">🚢 竹筏近距离观瀑</span>
+                                <span class="feature-tag">📸 最佳机位：53号界碑旁</span>
+                            </div>
+                            <div class="distance-badge">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                明仕→德天 约 37km · 50分钟
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="time-slot">
+                        <div class="time-label">下午</div>
+                        <div class="slot-content">
+                            <h4>蓝洞咖啡 <span class="slot-tag">网红必打卡</span></h4>
+                            <p>藏在喀斯特溶洞里的网红咖啡厅。天然溶洞改造，在幽暗的洞穴中品尝一杯特调，透过洞口远眺瀑布与青山，摆烂发呆的绝佳去处。</p>
+                            <div class="feature-list">
+                                <span class="feature-tag">☕ 溶洞咖啡体验</span>
+                                <span class="feature-tag">📸 洞口拍照绝美</span>
+                                <span class="feature-tag">🧖 洞内清凉避暑</span>
+                                <span class="feature-tag">🌄 瀑布远景视角</span>
+                            </div>
+                            <div class="distance-badge">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                德天→蓝洞 约 5km · 10分钟
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="time-slot">
+                        <div class="time-label">晚上</div>
+                        <div class="slot-content">
+                            <h4>大新县城住宿 · 宵夜时光</h4>
+                            <p>返回大新县城入住，晚上可以在县城寻觅地道美食。壮族烤乳猪外酥里嫩，是当地的招牌美味。</p>
+                            <div class="food-section">
+                                <h5 class="food-title">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                                    今日美食推荐
+                                </h5>
+                                <div class="food-grid">
+                                    <span class="food-item">🐷 壮族烤乳猪</span>
+                                    <span class="food-item">🍜 德天越式美食</span>
+                                    <span class="food-item">☕ 蓝洞特调咖啡</span>
+                                    <span class="food-item">🥗 大新夜市小吃</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tips-box">
+                        <h5>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                            最佳观赏时间
+                        </h5>
+                        <ul>
+                            <li><strong>瀑布最佳观赏：</strong>11:00-14:00，阳光直射时可见彩虹</li>
+                            <li><strong>避开人流：</strong>景区 8:00 开门，建议开门即达</li>
+                            <li><strong>蓝洞咖啡：</strong>下午 2-4 点光线最佳，适合拍照</li>
+                            <li>德天老木棉餐厅在瀑布景区内，可边用餐边观瀑</li>
+                        </ul>
+                    </div>
+                    <div class="rainy-box">
+                        <h5>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 17.58A5 5 0 0018 8h-1.26A8 8 0 104 16.25"/><line x1="8" y1="16" x2="8.01" y2="16"/><line x1="8" y1="20" x2="8.01" y2="20"/><line x1="12" y1="18" x2="12.01" y2="18"/><line x1="12" y1="22" x2="12.01" y2="22"/><line x1="16" y1="16" x2="16.01" y2="16"/><line x1="16" y1="20" x2="16.01" y2="20"/></svg>
+                            雨天备选行程
+                        </h5>
+                        <p>雨天瀑布观景台可能淋湿，但这正是欣赏瀑布的最佳时机：</p>
+                        <div class="rainy-route">
+                            <span>上午：蓝洞咖啡（溶洞内避雨）</span>
+                            <span>→</span>
+                            <span>中午：德天老木棉餐厅观瀑用餐</span>
+                            <span>→</span>
+                            <span>下午：大新县城购物/咖啡厅休整</span>
+                        </div>
+                        <p style="margin-top: var(--sm); font-size: 0.85rem; color: var(--ink-light);">💡 提示：雨后德天瀑布水量大增，气势更壮观！建议穿雨衣而非打伞，景区内有售卖雨具</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Day 3 -->
+            <article class="day-card fade-in" id="day3">
+                <div class="day-header">
+                    <div class="day-badge-row">
+                        <div class="day-number">D3</div>
+                        <div class="day-date">5月2日 <span class="weekday">周五</span></div>
+                    </div>
+                    <h3 class="day-title">秘境探幽 · 转赴南宁</h3>
+                    <div class="day-route">
+                        <span>大新县城</span>
+                        <span class="route-arrow">→</span>
+                        <span>伏那秘境</span>
+                        <span class="route-arrow">→</span>
+                        <span>峒那屿湾</span>
+                        <span class="route-arrow">→</span>
+                        <span>南宁</span>
+                    </div>
+                </div>
+                <div class="day-content">
+                    <div class="time-slot">
+                        <div class="time-label">上午</div>
+                        <div class="slot-content">
+                            <h4>伏那秘境 <span class="slot-tag">原生态</span></h4>
+                            <p>鲜为人知的原生态秘境，原始森林覆盖，瀑布溪流遍布。这里没有喧嚣的人群，只有纯粹的山水与宁静。徒步其中，感受被大自然包围的治愈感。</p>
+                            <div class="feature-list">
+                                <span class="feature-tag">🌲 原始森林徒步</span>
+                                <span class="feature-tag">💦 野瀑布群</span>
+                                <span class="feature-tag">🦋 珍稀动植物</span>
+                                <span class="feature-tag">🧘 瑜伽冥想圣地</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="time-slot">
+                        <div class="time-label">中午</div>
+                        <div class="slot-content">
+                            <h4>峒那屿湾午餐 · 休整小憩</h4>
+                            <p>乘车前往峒那屿湾，在景区附近农家乐用午餐，品尝百香果排骨、龙州鸡肉粉等当地特色。</p>
+                            <div class="food-section">
+                                <h5 class="food-title">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                                    午餐推荐
+                                </h5>
+                                <div class="food-grid">
+                                    <span class="food-item">🍖 百香果排骨</span>
+                                    <span class="food-item">🍜 龙州鸡肉粉</span>
+                                    <span class="food-item">🥬 峒那农家菜</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="time-slot">
+                        <div class="time-label">下午</div>
+                        <div class="slot-content">
+                            <h4>峒那屿湾 <span class="slot-tag">山水画廊</span></h4>
+                            <p>被誉为"水上桂林"，乘船穿行于喀斯特山水之间，两岸青山如黛，水面碧波荡漾。这里是电影《花千骨》取景地，仙侠古风扑面而来。</p>
+                            <div class="feature-list">
+                                <span class="feature-tag">🚤 游船观光 1 小时</span>
+                                <span class="feature-tag">🎬 《花千骨》取景地</span>
+                                <span class="feature-tag">📸 喀斯特山水绝景</span>
+                                <span class="feature-tag">🌸 壮族民俗表演</span>
+                            </div>
+                            <div class="distance-badge">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                伏那→峒那屿湾 约 30km · 40分钟
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="time-slot">
+                        <div class="time-label">傍晚</div>
+                        <div class="slot-content">
+                            <h4>返回崇左 → 高铁赴南宁</h4>
+                            <p>游览结束后返回崇左站归还租车，搭乘高铁前往南宁。抵达南宁后入住酒店，感受广西首府的城市脉搏。</p>
+                            <div class="distance-badge">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                峒那→崇左站 约 80km · 1.5小时
+                            </div>
+                            <div class="distance-badge">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                                崇左→南宁 高铁约 1 小时
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tips-box">
+                        <h5>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                            今日贴士
+                        </h5>
+                        <ul>
+                            <li>伏那秘境路况较差，建议驾驶 SUV 或注意底盘</li>
+                            <li>峒那屿湾游船下午 5 点停运，注意时间安排</li>
+                            <li>提前查好崇左→南宁高铁班次，建议预订 18:00 后车次</li>
+                            <li>南宁酒店建议选择市中心，方便第二天游览</li>
+                        </ul>
+                    </div>
+                    <div class="rainy-box">
+                        <h5>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 17.58A5 5 0 0018 8h-1.26A8 8 0 104 16.25"/><line x1="8" y1="16" x2="8.01" y2="16"/><line x1="8" y1="20" x2="8.01" y2="20"/><line x1="12" y1="18" x2="12.01" y2="18"/><line x1="12" y1="22" x2="12.01" y2="22"/><line x1="16" y1="16" x2="16.01" y2="16"/><line x1="16" y1="20" x2="16.01" y2="20"/></svg>
+                            雨天备选行程
+                        </h5>
+                        <p>雨天伏那秘境徒步危险，峒那屿湾游船可能停运：</p>
+                        <div class="rainy-route">
+                            <span>上午：大新县城休整/咖啡厅</span>
+                            <span>→</span>
+                            <span>中午：崇左市太平古镇（有遮雨天设施）</span>
+                            <span>→</span>
+                            <span>下午：提前前往南宁，市区商场/博物馆</span>
+                        </div>
+                        <p style="margin-top: var(--sm); font-size: 0.85rem; color: var(--ink-light);">💡 提示：如雨势较小，峒那屿湾游船仍可运营，雨中游船别有一番烟雨山水意境</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Day 4 -->
+            <article class="day-card fade-in" id="day4">
+                <div class="day-header">
+                    <div class="day-badge-row">
+                        <div class="day-number">D4</div>
+                        <div class="day-date">5月3日 <span class="weekday">周六</span></div>
+                    </div>
+                    <h3 class="day-title">南宁城市漫游</h3>
+                    <div class="day-route">
+                        <span>青秀山公园</span>
+                        <span class="route-arrow">→</span>
+                        <span>广西民族博物馆</span>
+                        <span class="route-arrow">→</span>
+                        <span>南宁市区</span>
+                    </div>
+                </div>
+                <div class="day-content">
+                    <div class="time-slot">
+                        <div class="time-label">上午</div>
+                        <div class="slot-content">
+                            <h4>青秀山公园 <span class="slot-tag">城市绿肺</span></h4>
+                            <p>南宁市区的天然氧吧，登上龙象塔可俯瞰整座城市。山上古木参天，有千年历史的观音禅寺。清晨登山，呼吸清新空气，感受绿城的悠闲时光。</p>
+                            <div class="feature-list">
+                                <span class="feature-tag">🗼 龙象塔登高望远</span>
+                                <span class="feature-tag">🏯 观音禅寺祈福</span>
+                                <span class="feature-tag">🌸 兰花园、苏铁园</span>
+                                <span class="feature-tag">🚡 观光缆车可选</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="time-slot">
+                        <div class="time-label">下午</div>
+                        <div class="slot-content">
+                            <h4>广西民族博物馆 <span class="slot-tag">文化之旅</span></h4>
+                            <p>了解广西壮族文化的最佳去处。馆内陈列丰富的民族文物，铜鼓文化展、壮族服饰展令人印象深刻。建筑本身也是一件艺术品，独特的铜鼓造型令人称奇。</p>
+                            <div class="feature-list">
+                                <span class="feature-tag">🥁 铜鼓文化专题展</span>
+                                <span class="feature-tag">👗 壮族服饰与织锦</span>
+                                <span class="feature-tag">🏛️ 建筑本身就是艺术品</span>
+                                <span class="feature-tag">📚 免费参观需预约</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="time-slot">
+                        <div class="time-label">傍晚</div>
+                        <div class="slot-content">
+                            <h4>南宁夜市寻味</h4>
+                            <p>晚上漫步南宁街头，寻觅地道美食。老友粉的酸爽、螺蛳粉的独特风味，是广西不可错过的味蕾记忆。</p>
+                            <div class="food-section">
+                                <h5 class="food-title">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                                    南宁必吃美食
+                                </h5>
+                                <div class="food-grid">
+                                    <span class="food-item">🍜 老友粉</span>
+                                    <span class="food-item">🥜 螺蛳粉</span>
+                                    <span class="food-item">🥟 南宁粉饺</span>
+                                    <span class="food-item">🌯 卷筒粉</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tips-box">
+                        <h5>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                            今日贴士
+                        </h5>
+                        <ul>
+                            <li>青秀山园区较大，建议乘观光车游览</li>
+                            <li>博物馆免费但需提前在公众号预约，周一闭馆</li>
+                            <li>南宁地铁便利，市区景点可地铁直达</li>
+                            <li>推荐夜市：中山路夜市、建政路夜市</li>
+                        </ul>
+                    </div>
+                    <div class="rainy-box">
+                        <h5>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 17.58A5 5 0 0018 8h-1.26A8 8 0 104 16.25"/><line x1="8" y1="16" x2="8.01" y2="16"/><line x1="8" y1="20" x2="8.01" y2="20"/><line x1="12" y1="18" x2="12.01" y2="18"/><line x1="12" y1="22" x2="12.01" y2="22"/><line x1="16" y1="16" x2="16.01" y2="16"/><line x1="16" y1="20" x2="16.01" y2="20"/></svg>
+                            雨天备选行程
+                        </h5>
+                        <p>雨天青秀山户外活动受限，可选择室内景点：</p>
+                        <div class="rainy-route">
+                            <span>上午：广西民族博物馆（室内）</span>
+                            <span>→</span>
+                            <span>下午：万象城/万达商圈购物</span>
+                            <span>→</span>
+                            <span>晚上：室内美食城或商场餐厅</span>
+                        </div>
+                        <p style="margin-top: var(--sm); font-size: 0.85rem; color: var(--ink-light);">💡 提示：南宁商场众多，雨天可逛万象城、航洋城等大型综合体，美食购物一站搞定</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Day 5 -->
+            <article class="day-card fade-in" id="day5">
+                <div class="day-header">
+                    <div class="day-badge-row">
+                        <div class="day-number">D5</div>
+                        <div class="day-date">5月4日 <span class="weekday">青年节</span></div>
+                    </div>
+                    <h3 class="day-title">南宁休闲 · 满载而归</h3>
+                    <div class="day-route">
+                        <span>睡到自然醒</span>
+                        <span class="route-arrow">→</span>
+                        <span>三街两巷</span>
+                        <span class="route-arrow">→</span>
+                        <span>机场返程</span>
+                    </div>
+                </div>
+                <div class="day-content">
+                    <div class="time-slot">
+                        <div class="time-label">上午</div>
+                        <div class="slot-content">
+                            <h4>睡到自然醒 <span class="slot-tag">旅行意义</span></h4>
+                            <p>经过四天的山水之旅，最后一天睡到自然醒，慢慢享用酒店早餐。旅行的意义，不就在于偶尔的慵懒与自在吗？</p>
+                        </div>
+                    </div>
+
+                    <div class="time-slot">
+                        <div class="time-label">下午</div>
+                        <div class="slot-content">
+                            <h4>三街两巷历史文化街区 <span class="slot-tag">老南宁风情</span></h4>
+                            <p>漫步南宁老城区，感受这座城市的历史脉搏。青砖黛瓦、骑楼老街，传统与现代在这里交融。逛逛文创小店，品尝街头小吃，选购广西特色伴手礼。</p>
+                            <div class="feature-list">
+                                <span class="feature-tag">🏛️ 骑楼老街风情</span>
+                                <span class="feature-tag">🎨 文创店铺林立</span>
+                                <span class="feature-tag">🛍️ 特产伴手礼</span>
+                                <span class="feature-tag">📸 复古街拍胜地</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="time-slot">
+                        <div class="time-label">傍晚</div>
+                        <div class="slot-content">
+                            <h4>南宁吴圩机场 · 返程</h4>
+                            <p>根据航班时间安排出发，前往南宁吴圩国际机场。带着满满的山水记忆与美食回味，结束这次难忘的广西之旅。</p>
+                            <div class="food-section">
+                                <h5 class="food-title">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                                    最后的味蕾记忆
+                                </h5>
+                                <div class="food-grid">
+                                    <span class="food-item">🦆 柠檬鸭</span>
+                                    <span class="food-item">🍙 八角粽</span>
+                                    <span class="food-item">🥗 壮族酸嘢</span>
+                                    <span class="food-item">🥟 南宁粉饺</span>
+                                </div>
+                            </div>
+                            <div class="distance-badge">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                                市区→机场 约 40 分钟车程
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tips-box">
+                        <h5>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                            今日贴士
+                        </h5>
+                        <ul>
+                            <li>推荐伴手礼：壮族绣球、坭兴陶、百香果干、罗汉果</li>
+                            <li>机场大巴在火车站有站点，约 40 分钟一班</li>
+                            <li>打车去机场更方便，费用约 80-100 元</li>
+                            <li>建议提前 2 小时到机场，五一人流较多</li>
+                        </ul>
+                    </div>
+                    <div class="rainy-box">
+                        <h5>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 17.58A5 5 0 0018 8h-1.26A8 8 0 104 16.25"/><line x1="8" y1="16" x2="8.01" y2="16"/><line x1="8" y1="20" x2="8.01" y2="20"/><line x1="12" y1="18" x2="12.01" y2="18"/><line x1="12" y1="22" x2="12.01" y2="22"/><line x1="16" y1="16" x2="16.01" y2="16"/><line x1="16" y1="20" x2="16.01" y2="20"/></svg>
+                            雨天备选行程
+                        </h5>
+                        <p>雨天户外不便，可选择室内活动轻松返程：</p>
+                        <div class="rainy-route">
+                            <span>上午：酒店休息/商场购物</span>
+                            <span>→</span>
+                            <span>中午：南宁站附近美食</span>
+                            <span>→</span>
+                            <span>下午：提前前往机场候机</span>
+                        </div>
+                        <p style="margin-top: var(--sm); font-size: 0.85rem; color: var(--ink-light);">💡 提示：南宁吴圩机场内有餐饮和购物设施，雨天可提前到机场休息候机</p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="info-section" id="info">
+        <div class="info-inner">
+            <div class="section-header">
+                <div class="section-label">Practical Tips</div>
+                <h2 class="section-title">实用贴士</h2>
+                <p class="section-desc" style="color: rgba(255,255,255,0.7);">让旅途更加顺畅的关键信息</p>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-card fade-in">
+                    <div class="info-card-header">
+                        <div class="info-icon">🚗</div>
+                        <h3>自驾注意事项</h3>
+                    </div>
+                    <ul>
+                        <li>S60 合那高速被称为<span class="highlight">最美高速</span>，沿途风景绝美，但注意不要边开边拍照</li>
+                        <li>山区路段弯道较多，<span class="highlight">控制车速</span>，谨慎驾驶</li>
+                        <li>部分景区路段信号弱，<span class="highlight">提前下载离线地图</span></li>
+                        <li>加油站间隔较远，<span class="highlight">保持油量不低于半箱</span></li>
+                        <li>五一期间车流较大，景区附近可能堵车，<span class="highlight">预留充足时间</span></li>
+                    </ul>
+                </div>
+
+                <div class="info-card fade-in">
+                    <div class="info-card-header">
+                        <div class="info-icon">⏰</div>
+                        <h3>景点最佳观赏时间</h3>
+                    </div>
+                    <ul>
+                        <li><span class="highlight">德天瀑布：</span>11:00-14:00 阳光直射，可见彩虹奇观</li>
+                        <li><span class="highlight">通灵大峡谷：</span>上午时段，阳光可穿透峡谷</li>
+                        <li><span class="highlight">明仕田园：</span>日落时分（约 18:00-19:00）光影最美</li>
+                        <li><span class="highlight">峒那屿湾：</span>下午 3-5 点，光线柔和适合拍照</li>
+                        <li><span class="highlight">蓝洞咖啡：</span>下午 2-4 点，洞口光线最佳</li>
+                    </ul>
+                </div>
+
+                <div class="info-card fade-in">
+                    <div class="info-card-header">
+                        <div class="info-icon">👥</div>
+                        <h3>躲避人流建议</h3>
+                    </div>
+                    <ul>
+                        <li><span class="highlight">景区开门即达：</span>德天瀑布、通灵大峡谷 8:00 开门，建议第一批进入</li>
+                        <li><span class="highlight">错峰用餐：</span>11:00 或 13:00 后用餐，避开人流高峰</li>
+                        <li><span class="highlight">热门景点下午：</span>五一期间上午人最多，下午相对较少</li>
+                        <li><span class="highlight">蓝洞咖啡早到：</span>网红点排队久，建议开门就去或傍晚</li>
+                        <li><span class="highlight">明仕竹筏错峰：</span>傍晚时分人少，还能赏日落</li>
+                    </ul>
+                </div>
+
+                <div class="info-card fade-in">
+                    <div class="info-card-header">
+                        <div class="info-icon">🎒</div>
+                        <h3>出行必备清单</h3>
+                    </div>
+                    <ul>
+                        <li><span class="highlight">衣物：</span>轻薄外套（峡谷内阴凉）、速干衣、舒适运动鞋</li>
+                        <li><span class="highlight">防晒防雨：</span>防晒霜、太阳镜、遮阳帽、雨衣/雨伞</li>
+                        <li><span class="highlight">证件：</span>身份证、驾驶证、充电宝</li>
+                        <li><span class="highlight">现金：</span>部分景区/小店不支持电子支付，备少量现金</li>
+                        <li><span class="highlight">摄影设备：</span>相机/手机、充电宝、防水袋（竹筏/游船用）</li>
+                    </ul>
+                </div>
+
+                <div class="info-card fade-in">
+                    <div class="info-card-header">
+                        <div class="info-icon">💰</div>
+                        <h3>预算参考</h3>
+                    </div>
+                    <ul>
+                        <li><span class="highlight">租车：</span>经济型约 200-300 元/天，五一可能涨价</li>
+                        <li><span class="highlight">油费：</span>全程约 400km，预估 300-400 元</li>
+                        <li><span class="highlight">门票：</span>通灵大峡谷 115 元，德天瀑布 80 元，明仕田园 120 元，峒那屿湾 100 元</li>
+                        <li><span class="highlight">住宿：</span>明仕田园/大新约 300-500 元/晚，南宁约 200-400 元/晚</li>
+                        <li><span class="highlight">人均预算：</span>约 3000-4000 元（含高铁、租车、住宿、门票、餐饮）</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p class="footer-quote">山水之间，自有诗意</p>
+        <p class="footer-note">愿这次广西之行，成为你记忆中最美的山水画卷 🏔️</p>
+    </footer>
+
+    <script>
+        // Navigation scroll behavior
+        const nav = document.getElementById('nav');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 100) {
+                nav.classList.add('visible');
+            } else {
+                nav.classList.remove('visible');
+            }
+
+            lastScroll = currentScroll;
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll indicator click
+        document.querySelector('.scroll-indicator').addEventListener('click', () => {
+            document.querySelector('#overview').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+    </script>
+</body>
+</html>
